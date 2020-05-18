@@ -1,4 +1,4 @@
-![Kashier](https://uploads-ssl.webflow.com/5e7783f66312835b392f3113/5e7783f6631283939f2f3189_Group%25205330-p-500.png)
+![](https://raw.githubusercontent.com/Kashier-payments/kashier-prestashop-1.6/master/kashier-logo.png)
 
 # Kashier-iOS-SDK
 Create seamless checkout experience for your customers !
