@@ -67,13 +67,19 @@ Please note that all the methods are of type 'Void'
 - Get our latest framework version from [Releases](https://github.com/Kashier-payments/Kashier-IOS-SDK/releases)
 - Extract the .zip file to get the **.framework**
 - Drag the .framework to your project 
+
+
 ![Add to project](./Docs/01-Add-to-project.png)
 - Choose Copy Items
+
+
 ![Copy Items](Docs/02-copy-items.png)
 - From the left side, make sure your project is selected, 
     - Select your **Target**
     - Under **Frameworks, Libraries, and Embedded Content**, find **KashierPaymentSdk.framework**
     - choose (Embed Without Signing, or Embed & Sign)
+    
+    
 ![Embed Framework](Docs/03-Embed-framework.png)
 - Import the SDK to your code
 ```swift
@@ -87,11 +93,12 @@ You'll need to initialize the SDK once before using any of the APIs
 
 
 ```swift
-Kashier.initialize(merchantId: String,
-            apiKey: String,
-			sdkMode: SDK_MODE,
-			currency: CURRENCY? = CURRENCY.EGP,
-			displayLang: DISPLAY_LANG? = DISPLAY_LANG.EN)
+Kashier.initialize(
+    merchantId: String,
+    apiKey: String,
+    sdkMode: SDK_MODE,
+    currency: CURRENCY? = CURRENCY.EGP,
+    displayLang: DISPLAY_LANG? = DISPLAY_LANG.EN)
 ```
 
 ```swift
@@ -202,27 +209,28 @@ Kashier.listShopperCards(
 ## Pay with Temp Token
 Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#TOKEN_VALIDITY) set to **TEMPORARY** 
 ```swift
-Kashier.payWithTempToken(shopperReference : String,
-                        orderId: String,
-                        amount : String,
-                        cardToken: String,
-                        cvvToken : String,
-                        paymentCallback : PaymentCallback)
+Kashier.payWithTempToken(
+    shopperReference : String,
+    orderId: String,
+    amount : String,
+    cardToken: String,
+    cvvToken : String,
+    paymentCallback : PaymentCallback)
 ```
 
 **Example**
 ```swift
 Kashier.payWithTempToken(
-					shopperReference: shopperReference,
-					orderId: orderId,
-					amount: Amount,
-					cardToken: cardToken,
-					cvvToken: ccvToken,
-					paymentCallback: PaymentCallback(onResponse: { (succ) -> (Void) in
-						print("Payment with Token Success: \(succ.getResponseMessageTranslated())")
-					}) { (error) -> (Void) in
-						print("Payment with Token Error: \(error.getErrorMessage())")
-				})
+    shopperReference: shopperReference,
+    orderId: orderId,
+    amount: Amount,
+    cardToken: cardToken,
+    cvvToken: ccvToken,
+    paymentCallback: PaymentCallback(onResponse: { (succ) -> (Void) in
+            print("Payment with Token Success: \(succ.getResponseMessageTranslated())")
+        }) { (error) -> (Void) in
+            print("Payment with Token Error: \(error.getErrorMessage())")
+			})
 ```
 | Parameters | Type | Description|
 | ------ | ------ | ------ |
@@ -237,25 +245,27 @@ Kashier.payWithTempToken(
 ## Pay with Perm Token
 Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#TOKEN_VALIDITY) set to **PERMANENT** 
 ```swift
-		Kashier.payWithPermToken(
-					shopperReference: shopperReference,
-					orderId: orderId,
-					amount: Amount,
-					cardToken: cardToken,
-					paymentCallback: PaymentCallback(onResponse: { (succ) -> (Void) in
-						print("Payment with Token Success: \(succ.getResponseMessageTranslated())")
-					}) { (error) -> (Void) in
-						print("Payment with Token Error: \(error.getErrorMessage())")
-				})
+Kashier.payWithPermToken(
+    shopperReference: shopperReference,
+    orderId: orderId,
+    amount: Amount,
+    cardToken: cardToken,
+    paymentCallback: PaymentCallback(onResponse: { 
+        (succ) -> (Void) in
+                print("Payment with Token Success: \(succ.getResponseMessageTranslated())")
+            }) { (error) -> (Void) in
+                print("Payment with Token Error: \(error.getErrorMessage())")
+        })
 
 ```
 
 ```swift
-Kashier.payWithPermToken(shopperReference : String,
-                        orderId: String,
-                        amount : String,
-                        cardToken: String,
-                        paymentCallback : PaymentCallback)
+Kashier.payWithPermToken(
+    shopperReference : String,
+    orderId: String,
+    amount : String,
+    cardToken: String,
+    paymentCallback : PaymentCallback)
 
 ```
 | Parameters | Type | Description|
