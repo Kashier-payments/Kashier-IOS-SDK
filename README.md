@@ -429,7 +429,7 @@ please refer to example
 # Example App
 This is a quick example app used to provide quick testing for functions provided by our payment SDK
 
-![Copy Items](Docs/04-Example-app.png){:height="50%" width="50%"}
+![Copy Items](Docs/04-Example-app.png)
  To use the example app provided in this repo
  ```sh
 git clone https://github.com/Kashier-payments/Kashier-IOS-SDK.git
