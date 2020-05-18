@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KashierSDK_ExampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kashier Payment SDK Dev" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKc-Z0-jAR">
+                                <rect key="frame" x="66" y="94" width="282.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hq2-df-w9E" userLabel="Token_3ds_vStackView">
+                                <rect key="frame" x="20" y="164" width="374" height="72"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sZP-zg-HjB" userLabel="tokenType_h_StackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Token Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTT-7Q-yja" userLabel="Token Type">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3ff-sS-PwI">
+                                                <rect key="frame" x="192" y="0.0" width="182" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OA-bX-f06" userLabel="lbl_temp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60.5" height="31"/>
+                                                        <gestureRecognizers/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gY4-zk-Zk7" userLabel="Switch_tokenType">
+                                                        <rect key="frame" x="60.5" y="0.0" width="63" height="31"/>
+                                                        <edgeInsets key="layoutMargins" top="8" left="50" bottom="8" right="8"/>
+                                                        <connections>
+                                                            <action selector="switchTokenTypeToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="IhP-ic-9zZ"/>
+                                                        </connections>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTz-wL-IaL" userLabel="lbl_perm">
+                                                        <rect key="frame" x="121.5" y="0.0" width="60.5" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ryn-Cn-I6C" userLabel="use3Ds_h_StackView">
+                                        <rect key="frame" x="0.0" y="41" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Use 3DS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5d-xF-B9h" userLabel="Use 3DS">
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XNg-eF-Zzw">
+                                                <rect key="frame" x="192" y="0.0" width="182" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcz-Sd-a5x" userLabel="lbl_no">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60.5" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ot-BQ-pq0">
+                                                        <rect key="frame" x="60.5" y="0.0" width="63" height="31"/>
+                                                        <edgeInsets key="layoutMargins" top="8" left="50" bottom="8" right="8"/>
+                                                        <connections>
+                                                            <action selector="switchUse3Ds:" destination="BYZ-38-t0r" eventType="valueChanged" id="U0z-cb-A3m"/>
+                                                        </connections>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZO-H3-bVD" userLabel="lbl_yes">
+                                                        <rect key="frame" x="121.5" y="0.0" width="60.5" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="x3C-a4-xWd" userLabel="ButtonsStackView">
+                                <rect key="frame" x="20" y="256" width="374" height="210"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oh8-Ir-Zct" userLabel="OrderId_Shopper_ButtonsStackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-e3-P0b" userLabel="New Order ID">
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="New Order ID"/>
+                                                <connections>
+                                                    <action selector="onNewOrderId:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jut-YZ-6ha"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWS-0b-c2g" userLabel="New Shopper">
+                                                <rect key="frame" x="194.5" y="0.0" width="179.5" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="New Shopper"/>
+                                                <connections>
+                                                    <action selector="onNewShopper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="94b-Ua-wLD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evn-fJ-Ly0" userLabel="Create Token">
+                                        <rect key="frame" x="0.0" y="45" width="374" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Create Token"/>
+                                        <connections>
+                                            <action selector="createToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Og6-Le-7Xy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Go0-Gv-UzR">
+                                        <rect key="frame" x="0.0" y="90" width="374" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="LIST CARDS"/>
+                                        <connections>
+                                            <action selector="listCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RjE-LQ-XV0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZ8-md-IHU" userLabel="Pay WIth Token">
+                                        <rect key="frame" x="0.0" y="135" width="374" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Pay WIth Token"/>
+                                        <connections>
+                                            <action selector="PayWithToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zub-Fh-v9G"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zM-dO-yky" userLabel="Pay with Card">
+                                        <rect key="frame" x="0.0" y="180" width="374" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="PAY WITH CARD"/>
+                                        <connections>
+                                            <action selector="PayUsingCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vKT-f2-dlq"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhc-OK-r02" userLabel="Pay with Form">
+                                        <rect key="frame" x="0.0" y="210" width="374" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="PAY WITH FORM"/>
+                                        <connections>
+                                            <action selector="PayWithForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LMN-Zd-dbK"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5P-id-K2s" userLabel="Pay WIth Form Pre-Filled">
+                                        <rect key="frame" x="0.0" y="210" width="374" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="PAY WITH FORM PRE-FILLED"/>
+                                        <connections>
+                                            <action selector="PayWithForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQB-HQ-cf3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0140370527" green="0.41729345750000002" blue="0.42319014700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HKc-Z0-jAR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="0vm-Gl-xu4"/>
+                            <constraint firstItem="x3C-a4-xWd" firstAttribute="top" secondItem="hq2-df-w9E" secondAttribute="bottom" constant="20" id="1pj-ZA-2pz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x3C-a4-xWd" secondAttribute="trailing" constant="20" id="CpC-nN-JEM"/>
+                            <constraint firstItem="x3C-a4-xWd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mg2-MC-EmF"/>
+                            <constraint firstItem="HKc-Z0-jAR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VNC-cE-rqI"/>
+                            <constraint firstItem="hq2-df-w9E" firstAttribute="top" secondItem="HKc-Z0-jAR" secondAttribute="bottom" constant="40" id="k6g-B5-5J1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hq2-df-w9E" secondAttribute="trailing" constant="20" id="tvF-XJ-H4E"/>
+                            <constraint firstItem="hq2-df-w9E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="w9g-EO-85q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblPerm" destination="rTz-wL-IaL" id="vhy-Q1-NIq"/>
+                        <outlet property="lblTemp" destination="3OA-bX-f06" id="xwl-Tr-TpQ"/>
+                        <outlet property="lblUse3DS_no" destination="tcz-Sd-a5x" id="WYq-C7-KED"/>
+                        <outlet property="lblUse3DS_yes" destination="yZO-H3-bVD" id="mGP-tL-wqh"/>
+                        <outlet property="switchTokenTypeTempPerm" destination="gY4-zk-Zk7" id="HP2-sx-9Mz"/>
+                        <outlet property="switch_3ds" destination="1Ot-BQ-pq0" id="mXF-XZ-EAw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="123.88392857142857"/>
+        </scene>
+    </scenes>
+</document>
