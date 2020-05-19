@@ -1,4 +1,5 @@
-![Kashier](https://uploads-ssl.webflow.com/5e7783f66312835b392f3113/5e7783f6631283939f2f3189_Group%25205330-p-500.png)
+[![](https://uploads-ssl.webflow.com/5e7783f66312835b392f3113/5e7783f6631283939f2f3189_Group%25205330-p-500.png)](#)
+
 
 # Kashier-iOS-SDK
 Create seamless checkout experience for your customers !
@@ -97,7 +98,7 @@ Kashier.initialize(
     merchantId: String,
     apiKey: String,
     sdkMode: SDK_MODE,
-    currency: CURRENCY? = CURRENCY.EGP,
+    currency: String? = "EGP",
     displayLang: DISPLAY_LANG? = DISPLAY_LANG.EN)
 ```
 
@@ -116,7 +117,7 @@ Kashier.initialize(merchantId: merchantId, apiKey:apiKey, sdkMode: sdkMode)
 | merchantId | String | [Merchant ID](#Prerequisites) |
 | apiKey | String | [API Key](#Prerequisites) |
 | sdkMode | [SDK_MODE](#SDK_MODE) | To switch between testing and live modes |
-| currency | [CURRENCY?](#CURRENCY) | Currently only supports EGP |
+| currency | String  | Defaults to EGP, We Support ISO currencies(EGP, USD, GBP, EUR)|
 | displayLang | [DISPLAY_LANG?](#DISPLAY_LANG) | To get the translated message from response|
 
 
@@ -244,6 +245,18 @@ Kashier.payWithTempToken(
 
 ## Pay with Perm Token
 Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#TOKEN_VALIDITY) set to **PERMANENT** 
+
+
+```swift
+Kashier.payWithPermToken(
+    shopperReference : String,
+    orderId: String,
+    amount : String,
+    cardToken: String,
+    paymentCallback : PaymentCallback)
+
+```
+
 ```swift
 Kashier.payWithPermToken(
     shopperReference: shopperReference,
@@ -259,15 +272,6 @@ Kashier.payWithPermToken(
 
 ```
 
-```swift
-Kashier.payWithPermToken(
-    shopperReference : String,
-    orderId: String,
-    amount : String,
-    cardToken: String,
-    paymentCallback : PaymentCallback)
-
-```
 | Parameters | Type | Description|
 | ------ | ------ | ------ |
 | shopperReference | String | User Unique ID in your system |
@@ -325,7 +329,6 @@ John Doe
 | MasterCard | 5123450000000008 | Yes |
 |  | 2223000000000007 | Yes |
 |  | 5111111111111118 | No |
-|  | 2223000000000023 | No |
 | Visa | 4508750015741019 | Yes |
 |  | 4012000033330026 | No |
 ### CVV
@@ -363,12 +366,7 @@ John Doe
 		case EN = "en"
 	}
 ```
-### CURRENCY	
-```swift
-	public enum CURRENCY : String{
-		case EGP = "EGP"
-	}
-```
+
 ### RESPONSE_STATUS
 ```swift
 	public enum RESPONSE_STATUS {
