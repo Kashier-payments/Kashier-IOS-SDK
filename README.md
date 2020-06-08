@@ -22,7 +22,8 @@ run your business.
     - [Pay with Temp Token](#Pay-With-Temp-Token)
     - [Pay with Perm Token](#Pay-With-Perm-Token)
 - [Payment with Card](#Payment-with-Card)
-- [Payment with Form (Coming Soon)](#Payment-with-Form-(Coming-Soon))
+- [Payment with Form](#Payment-with-Form)
+- [Payment with Custom Form](#Payment-with-Custom-Form)
 - [Testing Data](#Testing-Data)
     - [Card Holder Name](#Card-Holder-Name)
     - [Test Cards](#Test-Cards)
@@ -316,8 +317,46 @@ Kashier.payWithCard(cardData: cardData,
 | shouldSaveCard | Bool | Wheter to save the card after the transaction or not |
 | paymentCallback | [PaymentCallback?](#PaymentCallback) | Callback that returns success or failure for the payment |
 
-# Payment with Form (Coming Soon)
-- Coming Soon ...
+# Payment with Form
+![Payment Form](./Docs/05-Payment-form.png)
+Used to pay using our Payment Form template as in the above screenshot, with option to allow saving the card for future payments, Internally uses [Payment with Card](#Payment-with-Card) API
+
+
+
+```swift
+Kashier.payUsingPaymentForm(
+		orderId: String,
+		amount: String,
+		shopperReference: String,
+		paymentCallback: PaymentCallback,
+		customXibFile: String? = nil)
+```
+**Example**
+```swift
+Kashier.payUsingPaymentForm(
+    orderId: orderId,
+    amount: Amount,
+    shopperReference: shopperReference,
+    paymentCallback: PaymentCallback(
+        onResponse: {
+            (succ) -> (Void) in
+            print("Payment with Form Success: \(succ.getResponseMessageTranslated())")
+        }) {
+            (error) -> (Void) in
+        print("Payment with Form Error: \(error.getErrorMessage())")
+    })
+```
+
+| Parameters | Type | Description|
+| ------ | ------ | ------ |
+| orderId | String | User Order ID in your system |
+| amount | String | Amount as a string, with max 2 Decimal digits |
+| shopperReference | String | User Unique ID in your system |
+| paymentCallback | [PaymentCallback?](#PaymentCallback) | Callback that returns success or failure for the payment |
+| customXibFile | [customXibFile?](#customXibFile) | Custom .xib file path for the custom form |
+
+# Payment with Custom Form
+- Details to come here
 # Testing Data
 You can use the following testing data
 ## Card Holder Name
@@ -419,6 +458,10 @@ please refer to example
 
 ### PaymentCallback
 please refer to example
+
+### customXibFile
+xib File path to be used in case it's required to use a custom payment form, please refer to example in [Payment with Custom Form](#Payment-with-Custom-Form)
+
 
 ### ErrorData
 
