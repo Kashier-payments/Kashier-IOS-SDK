@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -98,7 +98,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="x3C-a4-xWd" userLabel="ButtonsStackView">
-                                <rect key="frame" x="20" y="256" width="374" height="210"/>
+                                <rect key="frame" x="20" y="256" width="374" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oh8-Ir-Zct" userLabel="OrderId_Shopper_ButtonsStackView">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -153,20 +153,20 @@
                                             <action selector="PayUsingCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vKT-f2-dlq"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhc-OK-r02" userLabel="Pay with Form">
-                                        <rect key="frame" x="0.0" y="210" width="374" height="0.0"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhc-OK-r02" userLabel="Pay with Form">
+                                        <rect key="frame" x="0.0" y="225" width="374" height="30"/>
                                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="PAY WITH FORM"/>
                                         <connections>
-                                            <action selector="PayWithForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LMN-Zd-dbK"/>
+                                            <action selector="PayUsingForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wh5-gM-1gA"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5P-id-K2s" userLabel="Pay WIth Form Pre-Filled">
-                                        <rect key="frame" x="0.0" y="210" width="374" height="0.0"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5P-id-K2s" userLabel="Pay WIth Custom Form">
+                                        <rect key="frame" x="0.0" y="270" width="374" height="30"/>
                                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="PAY WITH FORM PRE-FILLED"/>
+                                        <state key="normal" title="PAY WITH CUSTOM FORM"/>
                                         <connections>
-                                            <action selector="PayWithForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQB-HQ-cf3"/>
+                                            <action selector="PayUsingCustomForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVD-FA-0eP"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -124,7 +124,7 @@ Kashier.initialize(merchantId: merchantId, apiKey:apiKey, sdkMode: sdkMode)
 
 # Save Shopper Card
 Use this API to save a user card (Create a token), for later usage as [Pay With Token](#Pay-With-Token)
-
+****
 There are 2 Types of [tokens](#TOKEN_VALIDITY)
 - **Temporary**: Used for Multiple page checkout, expires within a limited time
 - **Permanent**: Card data is Saved at Kashier, can be used for any future transactions
@@ -321,8 +321,6 @@ Kashier.payWithCard(cardData: cardData,
 ![Payment Form](./Docs/05-Payment-form.png)
 Used to pay using our Payment Form template as in the above screenshot, with option to allow saving the card for future payments, Internally uses [Payment with Card](#Payment-with-Card) API
 
-
-
 ```swift
 Kashier.payUsingPaymentForm(
 		orderId: String,
@@ -356,7 +354,107 @@ Kashier.payUsingPaymentForm(
 | customXibFile | [customXibFile?](#customXibFile) | Custom .xib file path for the custom form |
 
 # Payment with Custom Form
-- Details to come here
+
+## How to use a custom Payment Form?
+
+
+1 - Create a new file
+
+![Create New File](./Docs/custom-form/01-create-new-file.png)
+
+2 - User Interface -> View 
+
+![Create View](./Docs/custom-form/02-create-view.png)
+
+3 - Choose a name for your xib file (will be used in below code example)
+
+![New View file name](./Docs/custom-form/03-view-file-name.png)
+
+4 - On the left side, make sure you selected "Placeholders/File's Owner". On the right side, make sure you choose the 4th tab (IDentity inspector).
+Update the custom class "Class" attribute to **PaymentFormViewController**
+
+![Set custom class for file](./Docs/custom-form/04-set-file-owner-custom-class.png)
+
+5 - Create your design as in the screenshot below,
+* 4 UITextField, and 4 Labels for their error messege 
+    * Card Holder Name
+    * Card Number
+    * Card Expiry Date
+    * Card CVV
+* 1 UISwitch (for saving card for future transactions check)
+* 1 UIButton (For payment)
+* 1 Cancel button *[Optional]* (to close the view)
+
+![create your design](./Docs/custom-form/05-create-design.png)
+
+6 - Select all 4 UITextInputs created, on the right side, make sure you're selecting "Identity Inspector" in xcode, and update the custom class
+* Class: **CustomUITextField**
+* Module: **KashierPaymentSDK**
+
+![Update UITextInput Custom class](./Docs/custom-form/06-update-custom-class-module.png)
+
+7 - Make sure you're on ***Placeholders -> File's Owner*** on the left side, and ***Connection Inspector*** tab on the right side
+(Optional) Connection action outlet for cancel button
+
+![Add action for cancel button](./Docs/custom-form/07-add-cancel-action-1.png)
+
+8 - Choose Touch Up Inside
+
+![Add action for cancel button](./Docs/custom-form/08-add-cancel-action-2.png)
+
+9 - Connect View outlet
+
+![connect view outlet](./Docs/custom-form/09-add-view.png)
+10 - Connect the rest of the outlets
+
+![connect rest of outlets](./Docs/custom-form/10-add-components.png)
+
+11 - The added components should appear like that on the Connections Inspector
+
+![Finished connected outlets](./Docs/custom-form/11-finished-added-components.png)
+
+12 - Call the payUsingPaymentForm with **customXibFile** as the file name
+
+### Code
+```swift
+Kashier.payUsingPaymentForm(
+		orderId: String,
+		amount: String,
+		shopperReference: String,
+		paymentCallback: PaymentCallback,
+		customXibFile: String? = nil)
+```
+**Example**
+```swift
+Kashier.payUsingPaymentForm(
+    orderId: orderId,
+    amount: Amount,
+    shopperReference: shopperReference,
+    paymentCallback: PaymentCallback(
+        onResponse: {
+            (succ) -> (Void) in
+            print("Payment with Form Success: \(succ.getResponseMessageTranslated())")
+        }) {
+            (error) -> (Void) in
+        print("Payment with Form Error: \(error.getErrorMessage())")
+    },
+    customXibFile: "CustomPaymentForm")
+```
+
+| Parameters | Type | Description|
+| ------ | ------ | ------ |
+| orderId | String | User Order ID in your system |
+| amount | String | Amount as a string, with max 2 Decimal digits |
+| shopperReference | String | User Unique ID in your system |
+| paymentCallback | [PaymentCallback?](#PaymentCallback) | Callback that returns success or failure for the payment |
+| customXibFile | [customXibFile?](#customXibFile) | Custom .xib file path for the custom form |
+
+The form should look like the below screenshots
+
+![Finished form from Emulator](./Docs/custom-form/12-finished-form.png)
+
+![Finished form with card detection and error validation](./Docs/custom-form/13-example-error-detection.png)
+
 # Testing Data
 You can use the following testing data
 ## Card Holder Name
