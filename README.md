@@ -318,7 +318,7 @@ Kashier.payWithCard(cardData: cardData,
 | paymentCallback | [PaymentCallback?](#PaymentCallback) | Callback that returns success or failure for the payment |
 
 # Payment with Form
-![Payment Form](./Docs/05-Payment-form.png)
+![Payment Form](./Docs/05-Payment-Form.png)
 Used to pay using our Payment Form template as in the above screenshot, with option to allow saving the card for future payments, Internally uses [Payment with Card](#Payment-with-Card) API
 
 ```swift
