@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/Kashier-payments/kashier-prestashop-1.6/master/kashier-logo.png)
+[![](https://uploads-ssl.webflow.com/5e7783f66312835b392f3113/5e7783f6631283939f2f3189_Group%25205330-p-500.png)](#)
 
 # Kashier-iOS-SDK
 Create seamless checkout experience for your customers !
@@ -9,6 +9,8 @@ Create seamless checkout experience for your customers !
 and simplify your business by providing you with 
 simple and efficient tools to make it easier to 
 run your business.
+
+> Please check [CHANGELOG.md](/CHANGELOG.md) for changes, in case you're upgrading your existing installation of the SDK.
 
 - [Features](#Features)
 - [Prerequisites](#Prerequisites)
@@ -21,7 +23,8 @@ run your business.
     - [Pay with Temp Token](#Pay-With-Temp-Token)
     - [Pay with Perm Token](#Pay-With-Perm-Token)
 - [Payment with Card](#Payment-with-Card)
-- [Payment with Form (Coming Soon)](#Payment-with-Form-(Coming-Soon))
+- [Payment with Form](#Payment-with-Form)
+- [Payment with Custom Form](#Payment-with-Custom-Form)
 - [Testing Data](#Testing-Data)
     - [Card Holder Name](#Card-Holder-Name)
     - [Test Cards](#Test-Cards)
@@ -96,9 +99,9 @@ You'll need to initialize the SDK once before using any of the APIs
 Kashier.initialize(
     merchantId: String,
     apiKey: String,
-    sdkMode: SDK_MODE,
-    currency: CURRENCY? = CURRENCY.EGP,
-    displayLang: DISPLAY_LANG? = DISPLAY_LANG.EN)
+    sdkMode: KASHIER_SDK_MODE,
+    currency: String? = "EGP",
+    displayLang: KASHIER_DISPLAY_LANG? = KASHIER_DISPLAY_LANG.EN)
 ```
 
 ```swift
@@ -106,7 +109,7 @@ let merchantId : String = "MID-XXXX-XXXX"
 let apiKey : String = "XXXXXXXX-XXXX-XXX-XXXXX-XXXXXXXXXXXX"
 var shopperReference :String = "XXXXXXXXXXXX"
 
-let sdkMode : Kashier.SDK_MODE = .DEVELOPMENT
+let sdkMode : KASHIER_SDK_MODE = .DEVELOPMENT
 
 Kashier.initialize(merchantId: merchantId, apiKey:apiKey, sdkMode: sdkMode)
 ```
@@ -115,15 +118,15 @@ Kashier.initialize(merchantId: merchantId, apiKey:apiKey, sdkMode: sdkMode)
 | ------ | ------ | ------ |
 | merchantId | String | [Merchant ID](#Prerequisites) |
 | apiKey | String | [API Key](#Prerequisites) |
-| sdkMode | [SDK_MODE](#SDK_MODE) | To switch between testing and live modes |
-| currency | [CURRENCY?](#CURRENCY) | Currently only supports EGP |
-| displayLang | [DISPLAY_LANG?](#DISPLAY_LANG) | To get the translated message from response|
+| sdkMode | [KASHIER_SDK_MODE](#KASHIER_SDK_MODE) | To switch between testing and live modes |
+| currency | String  | Defaults to EGP, We Support ISO currencies(EGP, USD, GBP, EUR)|
+| displayLang | [KASHIER_DISPLAY_LANG?](#KASHIER_DISPLAY_LANG) | To get the translated message from response|
 
 
 # Save Shopper Card
 Use this API to save a user card (Create a token), for later usage as [Pay With Token](#Pay-With-Token)
-
-There are 2 Types of [tokens](#TOKEN_VALIDITY)
+****
+There are 2 Types of [tokens](#KASHIER_TOKEN_VALIDITY)
 - **Temporary**: Used for Multiple page checkout, expires within a limited time
 - **Permanent**: Card data is Saved at Kashier, can be used for any future transactions
 
@@ -132,7 +135,7 @@ There are 2 Types of [tokens](#TOKEN_VALIDITY)
 Kashier.saveShopperCard(
 		cardData : Card,
 		shopperReference: String,
-		tokenValidity : Kashier.TOKEN_VALIDITY,
+		tokenValidity : KASHIER_TOKEN_VALIDITY,
 		tokenizationCallback : TokenizationCallback) 
 ```
 
@@ -140,7 +143,7 @@ Kashier.saveShopperCard(
 ```swift
 var cardData : Card = Card(cardHolderName: name, cardNumber: numCard, cardCcv: cvv, cardExpiryMonth: month , cardExpiryYear: year)
 var shopperReference :String = "XXXXXX"
-var tokenType :Kashier.TOKEN_VALIDITY = .PERMANENT
+var tokenType : KASHIER_TOKEN_VALIDITY = .PERMANENT
 
 Kashier.saveShopperCard(cardData: cardData,
                     shopperReference: shopperReference,
@@ -165,7 +168,7 @@ Kashier.saveShopperCard(cardData: cardData,
 | ------ | ------ | ------ |
 | cardData | [Card](#Card) | Card Details |
 | shopperReference | String | User Unique ID in your system |
-| tokenValidity | [TOKEN_VALIDITY](#TOKEN_VALIDITY) | Wheter to use a temp or perm token |
+| tokenValidity | [KASHIER_TOKEN_VALIDITY](#KASHIER_TOKEN_VALIDITY) | Wheter to use a temp or perm token |
 | tokenizationCallback | [TokenizationCallback?](#TokenizationCallback) | Callback that returns success or failure for Saving the card |
 
 
@@ -174,7 +177,7 @@ Kashier.saveShopperCard(cardData: cardData,
 # List Shopper Card
 Used to get a list of previously saved cards
 Tokens are saved with one of the following conditions should be available in this api
-- Tokens saved with [Save Shopper Card](#Save-Shopper-Card), with [**tokenValidity**](#TOKEN_VALIDITY) set to **PERMANENT**
+- Tokens saved with [Save Shopper Card](#Save-Shopper-Card), with [**tokenValidity**](#KASHIER_TOKEN_VALIDITY) set to **PERMANENT**
 - Tokens saved with [Payment with Card](#Payment-with-Card), with **shouldSaveCard** set to **true**
 
 
@@ -202,12 +205,12 @@ Kashier.listShopperCards(
 | Parameters | Type | Description|
 | ------ | ------ | ------ |
 | shopperReference | String | User Unique ID in your system |
-| tokenValidity | [TOKEN_VALIDITY](#TOKEN_VALIDITY) | Wheter to use a temp or perm token |
+| tokenValidity | [KASHIER_TOKEN_VALIDITY](#KASHIER_TOKEN_VALIDITY) | Wheter to use a temp or perm token |
 | TokensListCallback | [TokensListCallback?](#TokensListCallback) | Callback that returns success with list of cards, or failure |
 
 # Pay With Token
 ## Pay with Temp Token
-Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#TOKEN_VALIDITY) set to **TEMPORARY** 
+Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#KASHIER_TOKEN_VALIDITY) set to **TEMPORARY** 
 ```swift
 Kashier.payWithTempToken(
     shopperReference : String,
@@ -243,7 +246,19 @@ Kashier.payWithTempToken(
 
 
 ## Pay with Perm Token
-Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#TOKEN_VALIDITY) set to **PERMANENT** 
+Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#KASHIER_TOKEN_VALIDITY) set to **PERMANENT** 
+
+
+```swift
+Kashier.payWithPermToken(
+    shopperReference : String,
+    orderId: String,
+    amount : String,
+    cardToken: String,
+    paymentCallback : PaymentCallback)
+
+```
+
 ```swift
 Kashier.payWithPermToken(
     shopperReference: shopperReference,
@@ -259,15 +274,6 @@ Kashier.payWithPermToken(
 
 ```
 
-```swift
-Kashier.payWithPermToken(
-    shopperReference : String,
-    orderId: String,
-    amount : String,
-    cardToken: String,
-    paymentCallback : PaymentCallback)
-
-```
 | Parameters | Type | Description|
 | ------ | ------ | ------ |
 | shopperReference | String | User Unique ID in your system |
@@ -312,8 +318,144 @@ Kashier.payWithCard(cardData: cardData,
 | shouldSaveCard | Bool | Wheter to save the card after the transaction or not |
 | paymentCallback | [PaymentCallback?](#PaymentCallback) | Callback that returns success or failure for the payment |
 
-# Payment with Form (Coming Soon)
-- Coming Soon ...
+# Payment with Form
+![Payment Form](./Docs/05-Payment-Form.png)
+Used to pay using our Payment Form template as in the above screenshot, with option to allow saving the card for future payments, Internally uses [Payment with Card](#Payment-with-Card) API
+
+```swift
+Kashier.payUsingPaymentForm(
+		orderId: String,
+		amount: String,
+		shopperReference: String,
+		paymentCallback: PaymentCallback,
+		customXibFile: String? = nil)
+```
+**Example**
+```swift
+Kashier.payUsingPaymentForm(
+    orderId: orderId,
+    amount: Amount,
+    shopperReference: shopperReference,
+    paymentCallback: PaymentCallback(
+        onResponse: {
+            (succ) -> (Void) in
+            print("Payment with Form Success: \(succ.getResponseMessageTranslated())")
+        }) {
+            (error) -> (Void) in
+        print("Payment with Form Error: \(error.getErrorMessage())")
+    })
+```
+
+| Parameters | Type | Description|
+| ------ | ------ | ------ |
+| orderId | String | User Order ID in your system |
+| amount | String | Amount as a string, with max 2 Decimal digits |
+| shopperReference | String | User Unique ID in your system |
+| paymentCallback | [PaymentCallback?](#PaymentCallback) | Callback that returns success or failure for the payment |
+| customXibFile | [customXibFile?](#customXibFile) | Custom .xib file path for the custom form |
+
+# Payment with Custom Form
+
+## How to use a custom Payment Form?
+
+
+1 - Create a new file
+
+![Create New File](./Docs/custom-form/01-create-new-file.png)
+
+2 - User Interface -> View 
+
+![Create View](./Docs/custom-form/02-create-view.png)
+
+3 - Choose a name for your xib file (will be used in below code example)
+
+![New View file name](./Docs/custom-form/03-view-file-name.png)
+
+4 - On the left side, make sure you selected "Placeholders/File's Owner". On the right side, make sure you choose the 4th tab (IDentity inspector).
+Update the custom class "Class" attribute to **PaymentFormViewController**
+
+![Set custom class for file](./Docs/custom-form/04-set-file-owner-custom-class.png)
+
+5 - Create your design as in the screenshot below,
+* 4 UITextField, and 4 Labels for their error messege 
+    * Card Holder Name
+    * Card Number
+    * Card Expiry Date
+    * Card CVV
+* 1 UISwitch (for saving card for future transactions check)
+* 1 UIButton (For payment)
+* 1 Cancel button *[Optional]* (to close the view)
+
+![create your design](./Docs/custom-form/05-create-design.png)
+
+6 - Select all 4 UITextInputs created, on the right side, make sure you're selecting "Identity Inspector" in xcode, and update the custom class
+* Class: **CustomUITextField**
+* Module: **KashierPaymentSDK**
+
+![Update UITextInput Custom class](./Docs/custom-form/06-update-custom-class-module.png)
+
+7 - Make sure you're on ***Placeholders -> File's Owner*** on the left side, and ***Connection Inspector*** tab on the right side
+(Optional) Connection action outlet for cancel button
+
+![Add action for cancel button](./Docs/custom-form/07-add-cancel-action-1.png)
+
+8 - Choose Touch Up Inside
+
+![Add action for cancel button](./Docs/custom-form/08-add-cancel-action-2.png)
+
+9 - Connect View outlet
+
+![connect view outlet](./Docs/custom-form/09-add-view.png)
+10 - Connect the rest of the outlets
+
+![connect rest of outlets](./Docs/custom-form/10-add-components.png)
+
+11 - The added components should appear like that on the Connections Inspector
+
+![Finished connected outlets](./Docs/custom-form/11-finished-added-components.png)
+
+12 - Call the payUsingPaymentForm with **customXibFile** as the file name
+
+### Code
+```swift
+Kashier.payUsingPaymentForm(
+		orderId: String,
+		amount: String,
+		shopperReference: String,
+		paymentCallback: PaymentCallback,
+		customXibFile: String? = nil)
+```
+**Example**
+```swift
+Kashier.payUsingPaymentForm(
+    orderId: orderId,
+    amount: Amount,
+    shopperReference: shopperReference,
+    paymentCallback: PaymentCallback(
+        onResponse: {
+            (succ) -> (Void) in
+            print("Payment with Form Success: \(succ.getResponseMessageTranslated())")
+        }) {
+            (error) -> (Void) in
+        print("Payment with Form Error: \(error.getErrorMessage())")
+    },
+    customXibFile: "CustomPaymentForm")
+```
+
+| Parameters | Type | Description|
+| ------ | ------ | ------ |
+| orderId | String | User Order ID in your system |
+| amount | String | Amount as a string, with max 2 Decimal digits |
+| shopperReference | String | User Unique ID in your system |
+| paymentCallback | [PaymentCallback?](#PaymentCallback) | Callback that returns success or failure for the payment |
+| customXibFile | [customXibFile?](#customXibFile) | Custom .xib file path for the custom form |
+
+The form should look like the below screenshots
+
+![Finished form from Emulator](./Docs/custom-form/12-finished-form.png)
+
+![Finished form with card detection and error validation](./Docs/custom-form/13-example-error-detection.png)
+
 # Testing Data
 You can use the following testing data
 ## Card Holder Name
@@ -325,7 +467,6 @@ John Doe
 | MasterCard | 5123450000000008 | Yes |
 |  | 2223000000000007 | Yes |
 |  | 5111111111111118 | No |
-|  | 2223000000000023 | No |
 | Visa | 4508750015741019 | Yes |
 |  | 4012000033330026 | No |
 ### CVV
@@ -349,29 +490,24 @@ John Doe
 
 # Data Models
 ## Enums
-### SDK_MODE
+### KASHIER_SDK_MODE
 ```swift
-	public enum SDK_MODE {
+	public enum KASHIER_SDK_MODE {
 		case DEVELOPMENT
 		case PRODUCTION
 	}
 ```
-### DISPLAY_LANG
+### KASHIER_DISPLAY_LANG
 ```swift
-	public enum DISPLAY_LANG : String{
+	public enum KASHIER_DISPLAY_LANG : String{
 		case AR = "ar"
 		case EN = "en"
 	}
 ```
-### CURRENCY	
+
+### KASHIER_RESPONSE_STATUS
 ```swift
-	public enum CURRENCY : String{
-		case EGP = "EGP"
-	}
-```
-### RESPONSE_STATUS
-```swift
-	public enum RESPONSE_STATUS {
+	public enum KASHIER_RESPONSE_STATUS {
 		case
 		UNKNOWN,
 		SUCCESS,
@@ -381,9 +517,9 @@ John Doe
 		PENDING_ACTION
 	}
 ```
-### TOKEN_VALIDITY
+### KASHIER_TOKEN_VALIDITY
 ```swift
-	public enum TOKEN_VALIDITY :String{
+	public enum KASHIER_TOKEN_VALIDITY :String{
 		case TEMPORARY = "temp"
 		case PERMANENT = "perm"
 	}
@@ -421,6 +557,10 @@ please refer to example
 
 ### PaymentCallback
 please refer to example
+
+### customXibFile
+xib File path to be used in case it's required to use a custom payment form, please refer to example in [Payment with Custom Form](#Payment-with-Custom-Form)
+
 
 ### ErrorData
 

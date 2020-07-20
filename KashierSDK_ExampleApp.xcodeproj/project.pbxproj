@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A74AC1324C5DD1A0081A7FB /* KashierPaymentSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A74AC1124C5DD140081A7FB /* KashierPaymentSDK.framework */; };
+		1A74AC1424C5DD1A0081A7FB /* KashierPaymentSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A74AC1124C5DD140081A7FB /* KashierPaymentSDK.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1A74AC1724C5DF8F0081A7FB /* CustomPaymentForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A74AC1624C5DF8F0081A7FB /* CustomPaymentForm.xib */; };
 		1AB96A7D246AF7BB00BE4BFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB96A7C246AF7BB00BE4BFA /* AppDelegate.swift */; };
 		1AB96A7F246AF7BB00BE4BFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB96A7E246AF7BB00BE4BFA /* SceneDelegate.swift */; };
 		1AB96A81246AF7BB00BE4BFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB96A80246AF7BB00BE4BFA /* ViewController.swift */; };
@@ -14,12 +17,6 @@
 		1AB96A89246AF7BE00BE4BFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AB96A87246AF7BE00BE4BFA /* LaunchScreen.storyboard */; };
 		1AC91AAE2472107E0022CBF7 /* DevConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC91AAD2472107E0022CBF7 /* DevConfig.swift */; };
 		1AC91AB02472109E0022CBF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC91AAF2472109E0022CBF7 /* Main.storyboard */; };
-		1AC91AB3247213CC0022CBF7 /* KashierPaymentSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC91AB1247213C60022CBF7 /* KashierPaymentSDK.framework */; };
-		1AC91AB4247213CC0022CBF7 /* KashierPaymentSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC91AB1247213C60022CBF7 /* KashierPaymentSDK.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		62F743F912CF69E9C25FBFEE /* 04-Example-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F74F0C424609F1BA7B28F9 /* 04-Example-app.png */; };
-		62F7466E44AB9663F244D72D /* 03-Embed-framework.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F743C85FBE853CE0855AD1 /* 03-Embed-framework.png */; };
-		62F74BB01CD949382C2494E2 /* 01-Add-to-project.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F7484E4ADCB299D17B7B85 /* 01-Add-to-project.png */; };
-		62F74C7F58E19888D1C87A52 /* 02-copy-items.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F74C9AD74D670BE4F29DC4 /* 02-copy-items.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +26,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1AC91AB4247213CC0022CBF7 /* KashierPaymentSDK.framework in Embed Frameworks */,
+				1A74AC1424C5DD1A0081A7FB /* KashierPaymentSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +34,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A74AC1124C5DD140081A7FB /* KashierPaymentSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KashierPaymentSDK.framework; sourceTree = "<group>"; };
+		1A74AC1624C5DF8F0081A7FB /* CustomPaymentForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomPaymentForm.xib; path = KashierSDK_ExampleApp/CustomPaymentForm.xib; sourceTree = "<group>"; };
 		1AB96A79246AF7BB00BE4BFA /* KashierSDK_ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KashierSDK_ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB96A7C246AF7BB00BE4BFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AB96A7E246AF7BB00BE4BFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +45,6 @@
 		1AB96A8A246AF7BE00BE4BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AC91AAD2472107E0022CBF7 /* DevConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevConfig.swift; sourceTree = "<group>"; };
 		1AC91AAF2472109E0022CBF7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		1AC91AB1247213C60022CBF7 /* KashierPaymentSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KashierPaymentSDK.framework; sourceTree = "<group>"; };
 		62F743C85FBE853CE0855AD1 /* 03-Embed-framework.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "03-Embed-framework.png"; path = "Docs/03-Embed-framework.png"; sourceTree = "<group>"; };
 		62F7484E4ADCB299D17B7B85 /* 01-Add-to-project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "01-Add-to-project.png"; path = "Docs/01-Add-to-project.png"; sourceTree = "<group>"; };
 		62F74C9AD74D670BE4F29DC4 /* 02-copy-items.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "02-copy-items.png"; path = "Docs/02-copy-items.png"; sourceTree = "<group>"; };
@@ -58,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AC91AB3247213CC0022CBF7 /* KashierPaymentSDK.framework in Frameworks */,
+				1A74AC1324C5DD1A0081A7FB /* KashierPaymentSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +66,8 @@
 		1AB96A70246AF7BB00BE4BFA = {
 			isa = PBXGroup;
 			children = (
-				1AC91AB1247213C60022CBF7 /* KashierPaymentSDK.framework */,
+				1A74AC1624C5DF8F0081A7FB /* CustomPaymentForm.xib */,
+				1A74AC1124C5DD140081A7FB /* KashierPaymentSDK.framework */,
 				1AB96A7B246AF7BB00BE4BFA /* KashierSDK_ExampleApp */,
 				1AB96A7A246AF7BB00BE4BFA /* Products */,
 				62F7484E4ADCB299D17B7B85 /* 01-Add-to-project.png */,
@@ -163,10 +162,7 @@
 				1AC91AB02472109E0022CBF7 /* Main.storyboard in Resources */,
 				1AB96A89246AF7BE00BE4BFA /* LaunchScreen.storyboard in Resources */,
 				1AB96A86246AF7BE00BE4BFA /* Assets.xcassets in Resources */,
-				62F74BB01CD949382C2494E2 /* 01-Add-to-project.png in Resources */,
-				62F74C7F58E19888D1C87A52 /* 02-copy-items.png in Resources */,
-				62F7466E44AB9663F244D72D /* 03-Embed-framework.png in Resources */,
-				62F743F912CF69E9C25FBFEE /* 04-Example-app.png in Resources */,
+				1A74AC1724C5DF8F0081A7FB /* CustomPaymentForm.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
