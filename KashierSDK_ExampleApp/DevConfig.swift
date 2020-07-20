@@ -16,8 +16,8 @@ var shopperReference :String = ""
 ///-------------------------------------
 
 
-let sdkMode : Kashier.SDK_MODE = .DEVELOPMENT
-var tokenType :Kashier.TOKEN_VALIDITY = .PERMANENT
+let sdkMode : KASHIER_SDK_MODE = .DEVELOPMENT
+var tokenType :KASHIER_TOKEN_VALIDITY = .PERMANENT
 var use3Ds : Bool = false
 var orderId :String = generateRandomString()
 

@@ -11,6 +11,8 @@ and simplify your business by providing you with
 simple and efficient tools to make it easier to 
 run your business.
 
+> Please check [CHANGELOG.md](/CHANGELOG.md) for changes, in case you're upgrading your existing installation of the SDK.
+
 - [Features](#Features)
 - [Prerequisites](#Prerequisites)
 - [API Documentation](https://test-api.kashier.io/api-docs/#/)
@@ -98,9 +100,9 @@ You'll need to initialize the SDK once before using any of the APIs
 Kashier.initialize(
     merchantId: String,
     apiKey: String,
-    sdkMode: SDK_MODE,
+    sdkMode: KASHIER_SDK_MODE,
     currency: String? = "EGP",
-    displayLang: DISPLAY_LANG? = DISPLAY_LANG.EN)
+    displayLang: KASHIER_DISPLAY_LANG? = KASHIER_DISPLAY_LANG.EN)
 ```
 
 ```swift
@@ -108,7 +110,7 @@ let merchantId : String = "MID-XXXX-XXXX"
 let apiKey : String = "XXXXXXXX-XXXX-XXX-XXXXX-XXXXXXXXXXXX"
 var shopperReference :String = "XXXXXXXXXXXX"
 
-let sdkMode : Kashier.SDK_MODE = .DEVELOPMENT
+let sdkMode : KASHIER_SDK_MODE = .DEVELOPMENT
 
 Kashier.initialize(merchantId: merchantId, apiKey:apiKey, sdkMode: sdkMode)
 ```
@@ -117,15 +119,15 @@ Kashier.initialize(merchantId: merchantId, apiKey:apiKey, sdkMode: sdkMode)
 | ------ | ------ | ------ |
 | merchantId | String | [Merchant ID](#Prerequisites) |
 | apiKey | String | [API Key](#Prerequisites) |
-| sdkMode | [SDK_MODE](#SDK_MODE) | To switch between testing and live modes |
+| sdkMode | [KASHIER_SDK_MODE](#KASHIER_SDK_MODE) | To switch between testing and live modes |
 | currency | String  | Defaults to EGP, We Support ISO currencies(EGP, USD, GBP, EUR)|
-| displayLang | [DISPLAY_LANG?](#DISPLAY_LANG) | To get the translated message from response|
+| displayLang | [KASHIER_DISPLAY_LANG?](#KASHIER_DISPLAY_LANG) | To get the translated message from response|
 
 
 # Save Shopper Card
 Use this API to save a user card (Create a token), for later usage as [Pay With Token](#Pay-With-Token)
 ****
-There are 2 Types of [tokens](#TOKEN_VALIDITY)
+There are 2 Types of [tokens](#KASHIER_TOKEN_VALIDITY)
 - **Temporary**: Used for Multiple page checkout, expires within a limited time
 - **Permanent**: Card data is Saved at Kashier, can be used for any future transactions
 
@@ -134,7 +136,7 @@ There are 2 Types of [tokens](#TOKEN_VALIDITY)
 Kashier.saveShopperCard(
 		cardData : Card,
 		shopperReference: String,
-		tokenValidity : Kashier.TOKEN_VALIDITY,
+		tokenValidity : KASHIER_TOKEN_VALIDITY,
 		tokenizationCallback : TokenizationCallback) 
 ```
 
@@ -142,7 +144,7 @@ Kashier.saveShopperCard(
 ```swift
 var cardData : Card = Card(cardHolderName: name, cardNumber: numCard, cardCcv: cvv, cardExpiryMonth: month , cardExpiryYear: year)
 var shopperReference :String = "XXXXXX"
-var tokenType :Kashier.TOKEN_VALIDITY = .PERMANENT
+var tokenType : KASHIER_TOKEN_VALIDITY = .PERMANENT
 
 Kashier.saveShopperCard(cardData: cardData,
                     shopperReference: shopperReference,
@@ -167,7 +169,7 @@ Kashier.saveShopperCard(cardData: cardData,
 | ------ | ------ | ------ |
 | cardData | [Card](#Card) | Card Details |
 | shopperReference | String | User Unique ID in your system |
-| tokenValidity | [TOKEN_VALIDITY](#TOKEN_VALIDITY) | Wheter to use a temp or perm token |
+| tokenValidity | [KASHIER_TOKEN_VALIDITY](#KASHIER_TOKEN_VALIDITY) | Wheter to use a temp or perm token |
 | tokenizationCallback | [TokenizationCallback?](#TokenizationCallback) | Callback that returns success or failure for Saving the card |
 
 
@@ -176,7 +178,7 @@ Kashier.saveShopperCard(cardData: cardData,
 # List Shopper Card
 Used to get a list of previously saved cards
 Tokens are saved with one of the following conditions should be available in this api
-- Tokens saved with [Save Shopper Card](#Save-Shopper-Card), with [**tokenValidity**](#TOKEN_VALIDITY) set to **PERMANENT**
+- Tokens saved with [Save Shopper Card](#Save-Shopper-Card), with [**tokenValidity**](#KASHIER_TOKEN_VALIDITY) set to **PERMANENT**
 - Tokens saved with [Payment with Card](#Payment-with-Card), with **shouldSaveCard** set to **true**
 
 
@@ -204,12 +206,12 @@ Kashier.listShopperCards(
 | Parameters | Type | Description|
 | ------ | ------ | ------ |
 | shopperReference | String | User Unique ID in your system |
-| tokenValidity | [TOKEN_VALIDITY](#TOKEN_VALIDITY) | Wheter to use a temp or perm token |
+| tokenValidity | [KASHIER_TOKEN_VALIDITY](#KASHIER_TOKEN_VALIDITY) | Wheter to use a temp or perm token |
 | TokensListCallback | [TokensListCallback?](#TokensListCallback) | Callback that returns success with list of cards, or failure |
 
 # Pay With Token
 ## Pay with Temp Token
-Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#TOKEN_VALIDITY) set to **TEMPORARY** 
+Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#KASHIER_TOKEN_VALIDITY) set to **TEMPORARY** 
 ```swift
 Kashier.payWithTempToken(
     shopperReference : String,
@@ -245,7 +247,7 @@ Kashier.payWithTempToken(
 
 
 ## Pay with Perm Token
-Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#TOKEN_VALIDITY) set to **PERMANENT** 
+Used to pay using a card token created using [Save Shopper Card](#Save-Shopper-Card) with [tokenValidity](#KASHIER_TOKEN_VALIDITY) set to **PERMANENT** 
 
 
 ```swift
@@ -489,24 +491,24 @@ John Doe
 
 # Data Models
 ## Enums
-### SDK_MODE
+### KASHIER_SDK_MODE
 ```swift
-	public enum SDK_MODE {
+	public enum KASHIER_SDK_MODE {
 		case DEVELOPMENT
 		case PRODUCTION
 	}
 ```
-### DISPLAY_LANG
+### KASHIER_DISPLAY_LANG
 ```swift
-	public enum DISPLAY_LANG : String{
+	public enum KASHIER_DISPLAY_LANG : String{
 		case AR = "ar"
 		case EN = "en"
 	}
 ```
 
-### RESPONSE_STATUS
+### KASHIER_RESPONSE_STATUS
 ```swift
-	public enum RESPONSE_STATUS {
+	public enum KASHIER_RESPONSE_STATUS {
 		case
 		UNKNOWN,
 		SUCCESS,
@@ -516,9 +518,9 @@ John Doe
 		PENDING_ACTION
 	}
 ```
-### TOKEN_VALIDITY
+### KASHIER_TOKEN_VALIDITY
 ```swift
-	public enum TOKEN_VALIDITY :String{
+	public enum KASHIER_TOKEN_VALIDITY :String{
 		case TEMPORARY = "temp"
 		case PERMANENT = "perm"
 	}

@@ -20,7 +20,7 @@ class ViewController: UIViewController {
 	@IBOutlet weak var switch_3ds: UISwitch!
 	@IBOutlet weak var lblUse3DS_no: UILabel!
 
-	func setToken(_ token: Kashier.TOKEN_VALIDITY) -> Void {
+	func setToken(_ token: KASHIER_TOKEN_VALIDITY) -> Void {
 		switch token {
 		case .PERMANENT:
 			tokenType = .PERMANENT
@@ -52,10 +52,10 @@ class ViewController: UIViewController {
 	}
 
 	@objc func lbl_temp_pressed() {
-		setToken(Kashier.TOKEN_VALIDITY.TEMPORARY)
+		setToken(KASHIER_TOKEN_VALIDITY.TEMPORARY)
 	}
 	@objc func lbl_perm_pressed() {
-		setToken(Kashier.TOKEN_VALIDITY.PERMANENT)
+		setToken(KASHIER_TOKEN_VALIDITY.PERMANENT)
 	}
 	@objc func lbl_3ds_yes_pressed() {
 		set3Ds(true)
