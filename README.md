@@ -524,6 +524,82 @@ John Doe
 		case PERMANENT = "perm"
 	}
 ```
+
+
+#### ErrorType
+```swift
+@objc public enum ERROR_TYPE: Int {
+	/* The NO_VALUE is to be used only as initial value, since nil can't be used with @objc */
+	case NO_VALUE,
+		/** In case an API is called without Initializing Kashier */
+		INITIALIZATION,
+		/** For validation errors on inputs */
+		VALIDATION,
+		/** For errors from network or Server */
+		DATA,
+		/** For runtime exceptions */
+		EXCEPTION,
+		NETWORK_ERROR
+}
+
+```
+
+#### KASHIER_RESPONSE_STATUS
+```swift
+@objc public enum KASHIER_RESPONSE_STATUS :Int {
+	/*The NO_VALUE is to be used only as initial value, since nil can't be used with @objc */
+	case NO_VALUE,
+	UNKNOWN,
+	SUCCESS,
+	FAILURE,
+	INVALID_REQUEST,
+	PENDING,
+	PENDING_ACTION
+}
+```
+
+
+#### VALIDATION_FIELD
+Can be helpful in determining the error message for each field, in case of custom payment form
+```swift
+@objc public enum VALIDATION_FIELD: Int {
+	case CARD_HOLDER_NAME,
+		CARD_NUMBER,
+		CARD_CVV,
+		CARD_EXPIRY_DATE,
+		SHOPPER_REFERENCE,
+		TOKEN_VALIDITY,
+		ORDER_ID,
+		AMOUNT,
+		CARD_TOKEN,
+		CVV_TOKEN
+}
+```
+
+#### VALIDATION_ERROR
+```swift
+@objc public enum VALIDATION_ERROR: Int {
+	case NO_ERROR,
+		CARD_HOLDER_NAME_REQUIRED,
+		CARD_HOLDER_NAME_INVALID,
+		CVV_REQUIRED,
+		CVV_INVALID,
+		EXPIRY_DATE_REQUIRED,
+		EXPIRY_DATE_INVALID,
+		CARD_NUMBER_REQUIRED,
+		CARD_NUMBER_INVALID,
+		CARD_NOT_SUPPORTED,
+		SHOPPER_REFERENCE_REQUIRED,
+		TOKEN_VALIDITY_REQUIRED,
+		ORDER_ID_REQUIRED,
+		AMOUNT_REQUIRED,
+		AMOUNT_INVALID,
+		CARD_TOKEN_REQUIRED,
+		CVV_TOKEN_REQUIRED
+}
+```
+
+
 ## Classes
 ### Card
 ```swift
@@ -563,7 +639,21 @@ xib File path to be used in case it's required to use a custom payment form, ple
 
 
 ### ErrorData
-
+```swift
+errorType : ErrorType
+responseStatus: KASHIER_RESPONSE_STATUS
+errorMessage : String //Error message from response, or validation errors for internal validation before API calling (ex: missing parameters, invalid card data, ...)
+exceptionErrorMessage: String = "" //in case errorType == ERROR_TYPE.EXCEPTION
+networkErrorCode: String = "" // in case  errorType == ERROR_TYPE.NETWORK_ERROR
+validationErrors: [ValidationResult] // in case errorType == ERROR_TYPE.VALIDATION
+```
+### ValidationResult
+```swift
+validationField: VALIDATION_FIELD
+isValid: Bool = false
+errorMessage: String
+validationErrorCode: VALIDATION_ERROR = VALIDATION_ERROR.NO_ERROR
+```
 
 
 # Example App

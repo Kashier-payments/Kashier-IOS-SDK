@@ -10,7 +10,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 --->
 
- 
+<!-- ## Unreleased -->
+## [1.0.4] - 2020-08-16
+### Fixed 
+- OTP Page doesn't load correctly with some card providers
+
+### Updated
+- README section for **ErrorData**
+#
 ## [1.0.3] - 2020-07-20
 The Core change in that version is added support for Objective-C for the existing swift code. The necessary code changes were made to make that possible.
 There's no need to upgrade to this version if you're using the previous one with swift.
