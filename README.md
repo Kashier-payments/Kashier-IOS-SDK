@@ -67,9 +67,9 @@ To get those 2 items:
 ## SDK Installation
 Please note that all the methods are of type 'Void'
 
-- Get our latest framework version from [Releases](https://github.com/Kashier-payments/Kashier-IOS-SDK/releases)
-- Extract the .zip file to get the **.framework**
-- Drag the .framework to your project 
+- Get our latest framework (xcframework) version from [Releases](https://github.com/Kashier-payments/Kashier-IOS-SDK/releases)
+- Extract the .zip file to get the **.xcframework**
+- Drag the .xcframework to your project 
 
 
 ![Add to project](./Docs/01-Add-to-project.png)

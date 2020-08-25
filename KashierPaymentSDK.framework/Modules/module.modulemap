@@ -1,4 +1,0 @@
-framework module KashierPaymentSDK {
-  header "KashierPaymentSDK-Swift.h"
-  requires objc
-}

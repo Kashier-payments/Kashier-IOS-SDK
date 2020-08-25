@@ -1,0 +1,11 @@
+framework module KashierPaymentSDK {
+  umbrella header "KashierPaymentSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module KashierPaymentSDK.Swift {
+    header "KashierPaymentSDK-Swift.h"
+    requires objc
+}

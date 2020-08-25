@@ -11,9 +11,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 --->
 
 <!-- ## Unreleased -->
-## [1.0.4] - 2020-08-16
+
+## [1.1.0] - 2020-08-25
+### Changed
+- Converted .framework to .xcframwork to support both simulator and physical device.
+
+
+## [1.0.4] - 2020-08-16 (Unreleased)
 ### Fixed 
 - OTP Page doesn't load correctly with some card providers
+- Fixed error messages, in case of validation errors in saveShopperCard
+- Added extra validation for card expiry date
 
 ### Updated
 - README section for **ErrorData**
