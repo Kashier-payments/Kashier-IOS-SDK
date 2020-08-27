@@ -10,9 +10,9 @@ import Foundation
 import  KashierPaymentSDK
 
 /// Edit these parameters to start usign our Example app
-let merchantId : String = "MID-1038-406"
-let apiKey : String = "790b5ab0-8ce0-4466-b102-acf943bdce04"
-var shopperReference :String = "123456"
+let merchantId : String = ""
+let apiKey : String = ""
+var shopperReference :String = ""
 ///-------------------------------------
 
 
