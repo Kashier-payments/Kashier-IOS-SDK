@@ -6,7 +6,11 @@
 	<dict>
 		<key>AddCardViewController.nib</key>
 		<data>
-		MSIU/PtTQVsSbtd1hb6FhdO9oO0=
+		9eZfNghcpOylsUQcZppnorxESdY=
+		</data>
+		<key>Assets.car</key>
+		<data>
+		7kBxg+Ihq+mETzZR8pAtUSqP2Wo=
 		</data>
 		<key>Headers/KashierPaymentSDK-Swift.h</key>
 		<data>
@@ -18,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		NKX2woJhSOk4E2I95xKiNd7UjIE=
+		PTPOOiXrENoVUYVcPS9CPlJ1Nl4=
 		</data>
 		<key>Modules/KashierPaymentSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,7 +34,7 @@
 		</data>
 		<key>Modules/KashierPaymentSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		OrAULIh4xun32DFUp27XeYYfcG0=
+		pUz6kfV+ZnkuabCXO/ArAwhHpFA=
 		</data>
 		<key>Modules/KashierPaymentSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -42,7 +46,7 @@
 		</data>
 		<key>Modules/KashierPaymentSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		OrAULIh4xun32DFUp27XeYYfcG0=
+		pUz6kfV+ZnkuabCXO/ArAwhHpFA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -50,7 +54,7 @@
 		</data>
 		<key>PaymentFormScreen.nib</key>
 		<data>
-		cpt7t9rQrkvJaGiQ9LrzzsU3wdE=
+		eB//93NGsbVRo19XIShWbt/gJIE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -59,7 +63,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ySj926UDNA7SwDLDSS9uhV0r3q97IFgc73xj8c7R7Cc=
+			f/pA4MB+Fy0M+J/7C2I7fXxP6SxzDrnUdj55MB5ITgQ=
+			</data>
+		</dict>
+		<key>Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UYNNt6hc3LkVKdpDDsZ3hGXYpNSE/7l5SxG0e8LjrSY=
 			</data>
 		</dict>
 		<key>Headers/KashierPaymentSDK-Swift.h</key>
@@ -94,7 +105,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eFaAS8APJbONK0Dt8y5dXmXmh1lSqDrxYiNu9VF4WTs=
+			BrXgqP/KSG/98pF9pLdW7de+1cIqEDNzFCCqFVu3DbQ=
 			</data>
 		</dict>
 		<key>Modules/KashierPaymentSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -115,7 +126,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eFaAS8APJbONK0Dt8y5dXmXmh1lSqDrxYiNu9VF4WTs=
+			BrXgqP/KSG/98pF9pLdW7de+1cIqEDNzFCCqFVu3DbQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -129,7 +140,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BtYhboiqeODGNKcnxwgzGYUQQpJajQxqiHkyUPXcVP0=
+			c+1NxoOdM/+XgdTidYgRe3XWB+NflQIbhXoFBtvrhq8=
 			</data>
 		</dict>
 	</dict>

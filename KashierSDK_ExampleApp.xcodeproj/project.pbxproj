@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A5A025124F7D63F00ED0CBC /* KashierPaymentSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5A025024F7D63E00ED0CBC /* KashierPaymentSDK.xcframework */; };
 		1A74AC1724C5DF8F0081A7FB /* CustomPaymentForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A74AC1624C5DF8F0081A7FB /* CustomPaymentForm.xib */; };
-		1A87273424F5874000A4920C /* KashierPaymentSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A87273224F5873E00A4920C /* KashierPaymentSDK.xcframework */; };
-		1A87273524F5874000A4920C /* KashierPaymentSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A87273224F5873E00A4920C /* KashierPaymentSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1AB96A7D246AF7BB00BE4BFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB96A7C246AF7BB00BE4BFA /* AppDelegate.swift */; };
 		1AB96A7F246AF7BB00BE4BFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB96A7E246AF7BB00BE4BFA /* SceneDelegate.swift */; };
 		1AB96A81246AF7BB00BE4BFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB96A80246AF7BB00BE4BFA /* ViewController.swift */; };
@@ -26,7 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1A87273524F5874000A4920C /* KashierPaymentSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,8 +32,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A5A025024F7D63E00ED0CBC /* KashierPaymentSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = KashierPaymentSDK.xcframework; sourceTree = "<group>"; };
 		1A74AC1624C5DF8F0081A7FB /* CustomPaymentForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomPaymentForm.xib; path = KashierSDK_ExampleApp/CustomPaymentForm.xib; sourceTree = "<group>"; };
-		1A87273224F5873E00A4920C /* KashierPaymentSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = KashierPaymentSDK.xcframework; sourceTree = "<group>"; };
 		1AB96A79246AF7BB00BE4BFA /* KashierSDK_ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KashierSDK_ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB96A7C246AF7BB00BE4BFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AB96A7E246AF7BB00BE4BFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A87273424F5874000A4920C /* KashierPaymentSDK.xcframework in Frameworks */,
+				1A5A025124F7D63F00ED0CBC /* KashierPaymentSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +64,7 @@
 		1AB96A70246AF7BB00BE4BFA = {
 			isa = PBXGroup;
 			children = (
-				1A87273224F5873E00A4920C /* KashierPaymentSDK.xcframework */,
+				1A5A025024F7D63E00ED0CBC /* KashierPaymentSDK.xcframework */,
 				1AB96A80246AF7BB00BE4BFA /* ViewController.swift */,
 				1A74AC1624C5DF8F0081A7FB /* CustomPaymentForm.xib */,
 				1AB96A7B246AF7BB00BE4BFA /* KashierSDK_ExampleApp */,
@@ -323,6 +321,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Kashier.KashierSDK-ExampleApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -345,6 +344,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Kashier.KashierSDK-ExampleApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
