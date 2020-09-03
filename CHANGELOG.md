@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 --->
 
 <!-- ## Unreleased -->
+## [1.1.2] - 2020-09-03
+
+### Fixed 
+- Updated some access modifiers for response Codable classes to support Objective-C (and React Native)
+
 ## [1.1.1] - 2020-08-27
 ### Fixed 
 - Fixed bug in saveShopperCard, listCards
