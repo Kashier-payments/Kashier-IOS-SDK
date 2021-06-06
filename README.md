@@ -123,6 +123,13 @@ Kashier.initialize(merchantId: merchantId, apiKey:apiKey, sdkMode: sdkMode)
 | displayLang | [KASHIER_DISPLAY_LANG?](#KASHIER_DISPLAY_LANG) | To get the translated message from response|
 
 
+# Add your Connected Accounts(SubMerchents)
+use this Method after initialize to set your Connected Accounts and the Obj will send with any checkout request
+
+```swift
+Kashier.setConnectedAccount(Connected_Accounts(mid: "MID-722-300"))
+```
+
 # Save Shopper Card
 Use this API to save a user card (Create a token), for later usage as [Pay With Token](#Pay-With-Token)
 ****
